@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invalid Input Shake</title>
+    <script src="script.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@100..900&display=swap");
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Urbanist", sans-serif;
+        font-weight: 700;
+      }
+
+      body {
+        background-color: #121212;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      form {
+        width: min(90%, 25em);
+        background-color: #e8e8e8;
+        position: relative;
+        padding: 5em 2em;
+        border-radius: 0.5em;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .error-message {
+        color: #ff3434;
+        visibility: hidden;
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: large;
+        transition: visibility 0.3s ease;
+      }
+
+      input,
+      button {
+        display: block;
+        width: 100%;
+        padding: 1em;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        outline: none;
+        transition: background-color 0.3s ease;
+      }
+
+      input {
+        background-color: #fff;
+        color: #1e1e1e;
+      }
+
+      input::placeholder {
+        color: #94a3b8;
+      }
+
+      input:focus,
+      input:hover {
+        border-color: rgba(129, 140, 248);
+        background-color: #fff;
+        box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
+      }
+
+      button {
+        background-color: #0080ff;
+        color: white;
+        margin-top: 2.5em;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #fff;
+        color: #0080ff;
+        border-color: rgba(129, 140, 248);
+        box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
+      }
+
+      .shake {
+        animation: shake 0.5s ease-in-out;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        50% {
+          transform: translateX(5px);
+        }
+        75% {
+          transform: translateX(-5px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form id="myForm">
+      <div id="errorMessage" class="error-message">Invalid Input!!</div>
+      <input
+        type="text"
+        id="inputField"
+        placeholder="Enter Some Text"
+        required
+      />
+      <button onclick="validateInput(event)" type="submit">Submit</button>
+    </form>
+  </body>
+</html>
 
